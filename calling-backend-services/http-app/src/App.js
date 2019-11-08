@@ -38,7 +38,7 @@ class App extends Component {
     this.setState({ posts });
 
     try {
-      await httpService.delete(config.apiEndpoint + "/" + post.id);
+      await httpService.delete("x" + config.apiEndpoint + "/" + post.id);
     } catch (ex) {
       if (ex.response && ex.response.status === 404) {
         alert("This post has may have been already deleted.");
@@ -51,6 +51,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <ToastContainer />
+        <button onClick={this.handleDelete}>Break the world</button>
         <button className="btn btn-primary" onClick={this.handleAdd}>
           Add
         </button>
